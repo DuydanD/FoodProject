@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Project</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <h1>Food Project</h1>
+
+    <button id="addIngredientBtn">Add Ingredient</button>
+    <div id="ingredientPopup" style="display:none;">
+        <h2>Add Ingredient</h2>
+        <form method="post"">
+            <label for="ingredient"> Ingredient:</label>
+            <input type="text" id="name" name="ingredient"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    {% for ingredient in ingredients %}
+        <li>{{ ingredient }}</li>
+    {% endfor %}
+   
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+</html>
