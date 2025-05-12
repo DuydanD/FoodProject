@@ -3,6 +3,11 @@ body {
     color: #ffffff;
 }
 
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
 #ingredientPopup {
     position: fixed;
     top: 50%;
