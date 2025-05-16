@@ -18,6 +18,7 @@ def index():
         new_ingredient = request.form['ingredient']
         cap_ingredient = new_ingredient.capitalize()
         lower_ingredient = cap_ingredient.lower()
+        quantity = request.form['quantity']
 
         existing_ingredients = []
 
@@ -26,14 +27,15 @@ def index():
                 reader = csv.reader(csvfile)
                 for row in reader:
                     if row:
-                        existing_ingredients.append(row[0].lower())
+                        name = row[0]
+                        existing_ingredients.append(name.lower())
         except FileNotFoundError:
             pass
 
         if lower_ingredient not in existing_ingredients:
             with open(filepath, 'a', newline='') as csvfile:
                 writer = csv.writer(csvfile)
-                writer.writerow([cap_ingredient])
+                writer.writerow([cap_ingredient, quantity])
 
         return redirect(url_for('index'))
     
@@ -42,8 +44,10 @@ def index():
         with open(filepath, 'r', newline='') as csvfile:
             reader = csv.reader(csvfile)
             for row in reader:
-                if row: 
-                    ingredients.append(row[0])
+                if row:
+                    name = row[0]
+                    number = row[1]
+                    ingredients.append({'name': name, 'quantity': number})
     
     return render_template('index.html', ingredients=ingredients)
 
@@ -58,19 +62,20 @@ def delete_selected_ingredients():
             reader = csv.reader(csvfile)
             for row in reader:
                 if row:
-                    all_ingredients.append(row[0])
+                    all_ingredients.append(row)
     except FileNotFoundError: 
         all_ingredients = []
 
     updated_ingredients = []
-    for ingredient in all_ingredients:
-        if ingredient.lower() not in [selected.lower() for selected in selected_ingredients]:
-            updated_ingredients.append(ingredient)
+    for item in all_ingredients:
+        ingredient_name = item[0]
+        if ingredient_name.lower() not in [selected.lower() for selected in selected_ingredients]:
+            updated_ingredients.append(item)
 
     with open(filepath, 'w', newline='') as csvfile:
         writer = csv.writer(csvfile)
-        for ingredient in updated_ingredients:
-            writer.writerow([ingredient])
+        for ingredient_data in updated_ingredients:
+            writer.writerow(ingredient_data)
     
     return redirect(url_for('index'))
 
