@@ -7,8 +7,11 @@
 - [x] Display the ingredient on the page
 - [x] Ability to delete the ingredient
 - [x] Ability to add quantity to ingredient
+- [ ] Xs next to ingredients
 - [ ] Ability to add weight to ingredient
+- [ ] If there is no weight/quanity don't show that attribute
 - [ ] Ability to add price to ingredient
+- [ ] Macro nutrition for each ingredient
 - [ ] Save list of ingredients as a recipe
 
 ## Ideas for future development
@@ -18,3 +21,4 @@
 * Create a shopping list for the coming week
 * Ability to assign nutrition values of each ingredient
 * Nutrition value for a recipe
+* Align boxes
