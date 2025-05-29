@@ -1,39 +1,38 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Food Project</title>
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
-</head>
+    <head>
+        <title>Macrochef</title>
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <h1>Macrochef</h1>
 
-<body>
-    <h1>Food Project</h1>
+        <button id="addIngredientBtn">Add Ingredient</button>
+        <div id="ingredientPopup" style="display:none;">
+            <h2>Add Ingredient</h2>
+            <button id="closePopupBtn"> &times; </button>
+            <form method="POST">
+                <label for="ingredient"> Ingredient:</label>
+                <input type="text" id="name" name="ingredient"><br><br>
+                <label for="quantity"> Quantity:</label>
+                <input type="number" id="number" name="quantity"><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
 
-    <button id="addIngredientBtn">Add Ingredient</button>
-    <div id="ingredientPopup" style="display:none;">
-        <h2>Add Ingredient</h2>
-        <button id="closePopupBtn"> &times; </button>
-        <form method="POST">
-            <label for="ingredient"> Ingredient:</label>
-            <input type="text" id="name" name="ingredient"><br><br>
-            <label for="quantity"> Quantity:</label>
-            <input type="number" id="number" name="quantity"><br><br>
-            <input type="submit" value="Submit">
+        <form method="POST" action="/delete_selected">
+            <h2>Existing ingredients:</h2>
+            <ul>
+                {% for ingredient in ingredients %}
+                <li>
+                    <input type="checkbox" name="delete_ingredient" value="{{ ingredient.name }}"">
+                    {{ ingredient.name }} - Quantity: {{ ingredient.quantity }}
+                </li>
+                {% endfor %}
+            </ul>
+            <button type=""submit" id="deleteSelectedBtn" style="display: none;">Delete Selected</button>
         </form>
-    </div>
-
-    <form method="POST" action="/delete_selected">
-        <h2>Existing ingredients:</h2>
-        <ul>
-            {% for ingredient in ingredients %}
-            <li>
-                <input type="checkbox" name="delete_ingredient" value="{{ ingredient.name }}"">
-                {{ ingredient.name }} - Quantity: {{ ingredient.quantity }}
-            </li>
-            {% endfor %}
-        </ul>
-        <button type=""submit">Delete Selected</button>
-    </form>
-   
-    <script src="{{url_for('static', filename='script.js')}}"></script>
-</body>
+    
+        <script src="{{url_for('static', filename='script.js')}}"></script>
+    </body>
 </html>
