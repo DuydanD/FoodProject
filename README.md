@@ -8,7 +8,7 @@
 - [x] Ability to delete the ingredient
 - [x] Ability to add quantity to ingredient
 - [ ] Xs next to ingredients
-- [ ] Ability to add weight to ingredient
+- [x] Ability to add weight to ingredient
 - [ ] If there is no weight/quanity don't show that attribute
 - [ ] Ability to add price to ingredient
 - [ ] Macro nutrition for each ingredient
