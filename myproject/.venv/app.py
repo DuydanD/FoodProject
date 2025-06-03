@@ -19,6 +19,8 @@ def index():
         cap_ingredient = new_ingredient.capitalize()
         lower_ingredient = cap_ingredient.lower()
         quantity = request.form['quantity']
+        weight = request.form['weight']
+        unit = request.form['unit']
 
         existing_ingredients = []
 
@@ -35,7 +37,7 @@ def index():
         if lower_ingredient not in existing_ingredients:
             with open(filepath, 'a', newline='') as csvfile:
                 writer = csv.writer(csvfile)
-                writer.writerow([cap_ingredient, quantity])
+                writer.writerow([cap_ingredient, quantity, weight, unit])
 
         return redirect(url_for('index'))
     
@@ -46,8 +48,10 @@ def index():
             for row in reader:
                 if row:
                     name = row[0]
-                    number = row[1]
-                    ingredients.append({'name': name, 'quantity': number})
+                    qNumber = row[1]
+                    wNumber = row[2]
+                    uValue = row[3]
+                    ingredients.append({'name': name, 'quantity': qNumber, 'weight': wNumber, 'unit': uValue})
     
     return render_template('index.html', ingredients=ingredients)
 
