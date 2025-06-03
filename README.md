@@ -9,7 +9,7 @@
 - [x] Ability to add quantity to ingredient
 - [ ] Xs next to ingredients
 - [x] Ability to add weight to ingredient
-- [ ] If there is no weight/quanity don't show that attribute
+- [x] If there is no weight/quanity don't show that attribute
 - [ ] Ability to add price to ingredient
 - [ ] Macro nutrition for each ingredient
 - [ ] Save list of ingredients as a recipe
