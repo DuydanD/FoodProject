@@ -18,9 +18,9 @@ def index():
         new_ingredient = request.form['ingredient']
         cap_ingredient = new_ingredient.capitalize()
         lower_ingredient = cap_ingredient.lower()
-        quantity = request.form['quantity']
-        weight = request.form['weight']
-        unit = request.form['unit']
+        quantity = request.form.get('quantity', '')
+        weight = request.form.get('weight', '')
+        unit = request.form.get('unit', '')
 
         existing_ingredients = []
 
