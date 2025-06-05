@@ -7,15 +7,18 @@
 - [x] Display the ingredient on the page
 - [x] Ability to delete the ingredient
 - [x] Ability to add quantity to ingredient
-- [ ] Xs next to ingredients
 - [x] Ability to add weight to ingredient
 - [x] If there is no weight/quanity don't show that attribute
-- [ ] Ability to add price to ingredient
-- [ ] Macro nutrition for each ingredient
+- [ ] Add fridge, cupboard and pantry section
+- [ ] Add macro nutrition for a few ingredients
+- [ ] Clicking on an ingredient shows macro nutrition
 - [ ] Save list of ingredients as a recipe
+- [ ] Xs next to ingredients
+
 
 ## Ideas for future development
-* Add fridge, cupboard and pantry sections
+* Find a way to bulk store macro nutrition
+* Ability to add price to ingredient
 * Cooking a recipe removed ingredients
 * Ability to create a meal plan (weekly or monthly)
 * Create a shopping list for the coming week
